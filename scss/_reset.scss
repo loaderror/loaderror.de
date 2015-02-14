@@ -1,0 +1,69 @@
+* {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, picture, footer, header, menu,
+nav, main, section {
+	display: block;
+}
+
+body {
+	color: $grey;
+	font-family: $main_font;
+	line-height: 1;
+	overflow-y: scroll;
+	text-size-adjust: 100%;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-rendering: optimizeLegibility;
+	font-feature-settings: "kern", "liga", "dlig";
+}
+
+a {
+	background-image: linear-gradient(rgba($accent, .5), rgba($accent, .5));
+	background-position: 0 92.5%;
+	background-repeat: repeat-x;
+	background-size: rem(1) rem(1);
+	color: inherit;
+	outline: none;
+	text-decoration: none;
+
+	&:hover, &:focus {
+		color: darken($grey, 10%);
+
+		svg {
+			fill: $accent;
+		}
+	}
+
+	&:active {
+		color: transparent;
+		text-shadow:  0 0 2px rgba($grey, .75);
+		@include transition-duration(0);
+
+		svg {
+			fill: darken($accent, 15%);
+		}
+	}
+
+	&, & svg {
+		@include transition-property(color, text-shadow, fill);
+		@include transition-duration(.15s);
+		@include transition-timing-function(ease-in-out);
+	}
+}

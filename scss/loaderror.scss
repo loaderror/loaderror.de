@@ -1,0 +1,44 @@
+@import "bourbon/bourbon";
+
+$grey: #333;
+$accent: #d24335;
+
+$main_font: sans-serif;
+$accent_font: Geo, $main_font;
+
+@import "reset";
+
+html, body, main {
+	position: relative;
+	@include size(100%);
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+h1 {
+	width: 100%;
+	text-align: center;
+	font-family: $accent_font;
+	font-style: italic;
+	font-size: em(56);
+	line-height: 1.618;
+}
+
+canvas {
+	height: rem(8);
+	max-width: 100%;
+}
+
+footer p {
+	background-color: #efefef;
+	border-bottom: rem(1) solid #ddd;
+	border-top: rem(1) solid #ddd;
+	color: lighten($grey, 25%);
+	font-size: em(14);
+	padding: rem(20) 0;
+	text-align: center;
+}
