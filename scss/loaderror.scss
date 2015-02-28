@@ -3,25 +3,87 @@
 $grey: #333;
 $accent: #d24335;
 
-$main_font: sans-serif;
+$member: darken(#898989, 10%);
+$online: darken(#66c0f4, 10%);
+$playing: darken(#90ba3c, 10%);
+
+$main_font: "Inconsolata", "Consolas", monospace;
 $accent_font: Geo, $main_font;
 
 @import "reset";
 
-html, body, body > header {
+html, body {
 	position: relative;
-	@include size(100%);
+	height: 100%;
+	width: 100%;
 }
 
 body > header, section {
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	justify-content: center;
 }
 
+body > header {
+	height: 100%;
+	border-bottom: rem(4) solid #efefef;
+}
+
 section {
+	min-height: 25%;
 	padding: rem(50);
 	align-items: center;
+
+	p {
+		display: inline-block;
+		text-align: center;
+		padding: rem(20);
+
+		span {
+			display: block;
+			font-size: rem(14);
+			font-weight: 400;
+			text-transform: uppercase;
+		}
+	}
+
+	div {
+		text-align: center;
+	}
+
+	div:first-of-type p {
+		font-size: em(64);
+		font-weight: 700;
+
+		&:nth-of-type(1) {
+			color: lighten($member, 10%);
+		}
+
+		&:nth-of-type(2) {
+			color: lighten($online, 10%);
+		}
+
+		&:nth-of-type(3)  {
+			color: lighten($playing, 10%);
+		}
+	}
+
+	a {
+		background: transparent;
+		border: rem(2) solid $accent;
+		padding: rem(10) rem(40);
+		border-radius: rem(4);
+
+		&:hover {
+			background: rgba($accent, .25);
+			@include transition-property(background);
+		}
+
+		&:active {
+			background: rgba($accent, .1);
+		}
+	}
 }
 
 h1 {
