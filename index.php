@@ -33,7 +33,7 @@ $playing = (int)$xml->groupDetails->membersInGame;
 			<?php if($playing > 0): ?><p><?php echo $playing ?> <span>playing</span></p><?php endif; ?>
 		</div>
 		<div>
-			<p><a href="#join">Join us</a></p>
+			<p><a href="https://steamcommunity.com/groups/loaderror">Join us</a></p>
 		</div>
 	</section>
 	<footer>
