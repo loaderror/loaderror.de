@@ -8,15 +8,20 @@ $accent_font: Geo, $main_font;
 
 @import "reset";
 
-html, body, main {
+html, body, body > header {
 	position: relative;
 	@include size(100%);
 }
 
-main {
+body > header, section {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+section {
+	padding: rem(50);
+	align-items: center;
 }
 
 h1 {
