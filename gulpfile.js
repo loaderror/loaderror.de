@@ -4,6 +4,7 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
+var shell = require("gulp-shell");
 
 var config = {
   scripts: "js/_*.js",
@@ -32,6 +33,13 @@ gulp.task("styles", function () {
     }}))
     .pipe(autoprefixer())
     .pipe(gulp.dest("css/"));
+});
+
+gulp.task("deploy", function () {
+  return gulp.src("")
+    .pipe(shell("tar -cvzf site.tar.gz *.php *.png *.ico css/* js/loaderror.js"))
+    .pipe(shell("scp -P 5190 site.tar.gz loaderror@loaderror.de:~/public"))
+    .pipe(shell("ssh loaderror@loaderror.de -p 5190 './public/deploy.sh' "))
 });
 
 gulp.task("watch", function () {
