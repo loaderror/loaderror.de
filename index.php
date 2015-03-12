@@ -1,11 +1,19 @@
 <?php
 
 $steamURL = "http://steamcommunity.com/groups/loaderror/memberslistxml/?xml=1";
-$xml = new SimpleXMLElement(file_get_contents($steamURL));
+$content = file_get_contents($steamURL, 0, stream_context_create(array(
+	"http" => array("timeout" => 1)
+)));
 
-$members = (int)$xml->groupDetails->memberCount;
-$online = (int)$xml->groupDetails->membersOnline;
-$playing = (int)$xml->groupDetails->membersInGame;
+if($content) {
+	$xml = new SimpleXMLElement($content);
+
+	$members = (int)$xml->groupDetails->memberCount;
+	$online  = (int)$xml->groupDetails->membersOnline;
+	$playing = (int)$xml->groupDetails->membersInGame;
+} else {
+	$members = $online = $playing = 0;
+}
 
 ?><!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
