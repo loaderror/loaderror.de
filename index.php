@@ -32,7 +32,7 @@ if($content) {
 <body>
 	<header>
 		<h1>loaderror</h1>
-		<canvas id="c"></canvas>
+		<canvas id="c" style="height: 8px"></canvas>
 	</header>
 	<section>
 		<div>
