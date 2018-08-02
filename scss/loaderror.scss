@@ -1,4 +1,4 @@
-@import "bourbon/bourbon";
+@import "bourbon";
 
 $grey: #333;
 $accent: #d24335;
@@ -11,6 +11,16 @@ $main_font: "Inconsolata", "Consolas", monospace;
 $accent_font: Geo, $main_font;
 
 @import "reset";
+
+@function em($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}em;
+}
+
+@function rem($size) {
+  $remSize: $size / 32;
+  @return #{$remSize}em;
+}
 
 html, body {
 	position: relative;
